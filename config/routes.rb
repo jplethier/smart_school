@@ -1,5 +1,8 @@
 SmartSchool::Application.routes.draw do
   devise_for :schools
+  devise_for :admins
+  devise_for :students
+  devise_for :teachers
   
   namespace :school do
     root to: 'application#home'
