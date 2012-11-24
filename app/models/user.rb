@@ -15,4 +15,12 @@ class User < ActiveRecord::Base
   def school?
     false
   end
+
+  def student?
+    false
+  end
+
+  def teacher?
+    false
+  end
 end

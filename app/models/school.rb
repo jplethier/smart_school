@@ -7,4 +7,12 @@ class School < User
   def school?
     true
   end
+
+  def student?
+    false
+  end
+
+  def teacher?
+    false
+  end
 end

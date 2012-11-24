@@ -1,6 +1,6 @@
-class Admin < User
+class Student < User
   def admin?
-    true
+    false
   end
 
   def school?
@@ -8,10 +8,10 @@ class Admin < User
   end
 
   def student?
-    false
+    true
   end
 
   def teacher?
     false
-  end
+  end  
 end
