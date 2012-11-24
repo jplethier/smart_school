@@ -1,0 +1,38 @@
+!!!
+/paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7]<html class="lt-ie9 lt-ie8 lt-ie7" lang="en">
+/[if IE 7]<html class="lt-ie9 lt-ie8" lang="en">
+/[if IE 8]<html class="lt-ie9" lang="en">
+/[if IE 9]<html class="ie9" lang="en">
+<!--[if gt IE 9]><!-->
+%html( lang = "en" )
+  <!--<![endif]-->
+  %head
+    %title Curtivendi
+    %meta{:charset => 'utf-8'}
+      = stylesheet_link_tag :application
+      = javascript_include_tag :application
+      = csrf_meta_tag
+
+  %body
+    #fb-root
+    = render 'layouts/header'
+    #wrap
+      %article{ id: controller.controller_name.singularize }
+        #flashes
+          - flash.each do |name, msg|
+            - if name == :error
+              .alert.error#flash_error{ style: "opacity: 1;" }
+                %p= msg
+
+            - if name == :alert
+              .alert.notice#flash_warning{ style: "opacity: 1;" }
+                %p>= msg
+
+            - if name == :notice
+              .alert.success#flash_notice{ style: "opacity: 1;" }
+                %p= msg
+                
+        = yield
+    = render 'layouts/footer'
+    = debug(params) if Rails.env.development?

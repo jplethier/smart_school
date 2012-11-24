@@ -1,0 +1,2 @@
+module School::ApplicationHelper
+end
