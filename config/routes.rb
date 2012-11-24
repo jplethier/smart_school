@@ -6,6 +6,8 @@ SmartSchool::Application.routes.draw do
   
   namespace :school do
     root to: 'application#home'
+
+    resources :subjects
   end
 
   namespace :teacher do
