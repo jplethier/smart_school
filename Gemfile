@@ -1,38 +1,47 @@
-source 'https://rubygems.org'
+source 'http://rubygems.org'
+ruby "1.9.3"
 
+gem 'annotate', ">= 2.5.0.pre1"
+gem 'bourbon'
+gem 'cancan'
+gem 'ckeditor'
+gem 'compass-rails'
+gem 'date_validator'
+gem 'devise'
+gem "friendly_id", "~> 4.0.1"
+gem 'haml'
+gem "haml-rails"
+gem 'heroku'
+gem 'jquery-rails'
+gem 'json'
+gem 'nokogiri'
+gem 'paper_trail'
+gem 'paperclip'
+gem 'pg', :require => 'pg'
 gem 'rails', '3.2.8'
+gem 'sass'
+gem 'sass-rails'
+gem 'sprockets'
+gem 'uglifier'
+gem 'will_paginate', '~> 3.0.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-gem 'sqlite3'
-
-
-# Gems used only for assets and not required
-# in production environments by default.
-group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
-
-  gem 'uglifier', '>= 1.0.3'
+group :development, :test do
+  gem 'awesome_print'
+  gem 'factory_girl_rails', '>= 1.1.beta1'
+  gem 'letter_opener'
+  gem 'pry-debugger'
+  gem "rspec-rails", "~> 2.6"
+  gem 'therubyracer'
 end
 
-gem 'jquery-rails'
+group :test do
+  gem 'capybara'
+  gem 'database_cleaner', '>= 0.6.7'
+  gem 'launchy'
+  gem 'shoulda-matchers'
+  gem 'simplecov', :require => false
+end
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'
+#cache
+gem 'memcachier'
+gem 'dalli'
