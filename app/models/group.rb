@@ -9,4 +9,6 @@ class Group < ActiveRecord::Base
   has_many :teachers, through: :subjects
 
   attr_protected :id
+
+  validates :name, presence: true
 end
