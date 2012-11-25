@@ -4,25 +4,45 @@
   %p= f.text_field :name
 
   %p= label_tag :subject, t('actions.subjects')
-  - f.object.group_subjects.each do
-    = f.fields_for :group_subjects do |f_s|
-      %p
-        = f_s.object.subject.name
-        = f_s.select :teacher_id, current_school.teachers.collect { |t| [t.name, t.id] }
+  #subjects_list
+    - f.object.group_subjects.each do |subject|
+      = f.fields_for :group_subjects, subject do |f_s|
+        %p
+          = f_s.object.subject.name
+          = f_s.select :teacher_id, current_school.teachers.collect { |t| [t.name, t.id] }, prompt: 'Selecione'
   %p
-    = select_tag :subject, options_from_collection_for_select(current_school.subjects, :id, :name)
+    = select_tag :subject, options_from_collection_for_select(current_school.subjects - f.object.subjects, :id, :name), prompt: 'Selecione'
     = link_to 'Adicionar a turma', 'javascript:;', onclick: "add_to_group('subject')"
 
   %p= label_tag :student, t('actions.alunos')
-  - f.object.students.each do |student|
-    %p= student.name
+  #students_list
+    - f.object.students.each do |student|
+      %p= student.name
   %p
-    = select_tag :student, options_from_collection_for_select(current_school.students, :id, :name)
+    = select_tag :student, options_from_collection_for_select(current_school.students - f.object.students, :id, :name), prompt: 'Selecione'
     = link_to 'Adicionar a turma', 'javascript:;', onclick: "add_to_group('student')"
   
   = f.submit t('actions.confirm')
 
 :javascript
   function add_to_group(id){
-    alert($('#' + id).val())
+    current_form = $('#' + id)
+    if( $('#'+id).val() != null ){
+      current_form.append('<input type="hidden" name="group[group_' + id + 's_attributes][][' + id + '_id]" value="' + $('#'+id).val() + '">');
+      if(id == 'subject'){
+        element = '<p>'+$('#'+id).find(':selected').text()
+        element = element + '<select name="group[group_subjects_attributes][][teacher_id]">#{current_school.teachers.collect {|t| '<option value="' + t.id.to_s + '">' + t.name + '</option>'} }</select>'
+        element = element + '</p>'
+        $('#'+id+'s_list').append(element)
+      }else{
+        $('#'+id+'s_list').append('<p>'+$('#'+id).find(':selected').text()+'</p>');
+      }
+      $('#'+id).find(':selected').remove()
+    }else{
+      if(id == 'subject'){
+        alert('É preciso escolher uma matéria para adicionar')
+      }else{
+        alert('É preciso escolher um aluno para adicionar')
+      }
+    }
   }

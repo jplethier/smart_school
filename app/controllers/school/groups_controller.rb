@@ -5,7 +5,9 @@ class School::GroupsController < School::ApplicationController
   end
 
   def update
+    binding.pry
     @group = current_school.groups.find(params[:id])
+    binding.pry
     if @group.update_attributes(params[:group])
       redirect_to school_group_path(@group), success: I18n.t('messages.update.success', model: 'Turma')
     else
