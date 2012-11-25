@@ -1,23 +1,22 @@
 require 'spec_helper'
 
-describe School do
-  let(:school) { FactoryGirl.create(:school) }
+describe Student do
+  let(:student) { FactoryGirl.create(:student) }
   
-  subject { school }
+  subject { student }
 
   it { should respond_to(:enrollments) }
-  it { should respond_to(:students) }
-  it { should respond_to(:teachers) }
-  it { should respond_to(:groups) }
-  it { should respond_to(:jobs) }
-  it { should respond_to(:subjects) }
+  it { should respond_to(:schools) }
   it { should respond_to(:name) }
   it { should respond_to(:email) }
   it { should respond_to(:password) }
   it { should respond_to(:password_confirmation) }
+  it { should respond_to(:enrollment_number) }
+  it { should respond_to(:school_id) }
   
   describe "Accessibility" do
-    it { should allow_mass_assignment_of(:name) }
+    it { should allow_mass_assignment_of(:school_id) }
+    it { should allow_mass_assignment_of(:enrollment_number) }
     it { should allow_mass_assignment_of(:email) }
     it { should allow_mass_assignment_of(:password) }
     it { should allow_mass_assignment_of(:password_confirmation) }
@@ -32,28 +31,19 @@ describe School do
     it { should validate_uniqueness_of(:email) }
   end
 
-  describe 'Associations' do
-    it { should have_many(:teachers) }
-    it { should have_many(:students) }
-    it { should have_many(:enrollments) }
-    it { should have_many(:jobs) }
-    it { should have_many(:subjects) }
-    it { should have_many(:groups) }
-  end
-
   it 'admin?' do
-    school.admin?.should == false
+    student.admin?.should == false
   end
 
   it 'student?' do
-    school.student?.should == false
+    student.student?.should == true
   end
 
   it 'school?' do
-    school.school?.should == true
+    student.school?.should == false
   end
 
   it 'teacher?' do
-    school.teacher?.should == false
+    student.teacher?.should == false
   end
 end
