@@ -3,6 +3,8 @@
 .infos
   Olá, 
   = current_school.name
+  %br
+  = link_to 'Sair', destroy_school_session_path, method: :delete
 .clear
 %ul
   %li= link_to t('actions.home'), school_root_path
