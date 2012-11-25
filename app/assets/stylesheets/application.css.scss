@@ -1,0 +1,26 @@
+@import 'bourbon';
+@import 'header';
+@import 'footer';
+
+body {
+  margin: 0;
+}
+
+.content {
+  width: 1024px;
+  margin: 0 auto;
+}
+
+ul {
+  list-style-type: none;
+  display: block;
+
+  li {
+    float: left;
+    padding: .5em;
+  }
+}
+
+.clear {
+  clear: both;
+}
