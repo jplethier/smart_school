@@ -1,4 +1,5 @@
 %tr
-  %td= student.name
+  %td= link_to student.name, school_student_path(student)
   %td= student.email
   %td= student.school_enrollment_number(current_school)
+  %td= link_to t('actions.edit', model: 'Aluno'), edit_school_student_path(student)
