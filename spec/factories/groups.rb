@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :group do
+    name 'Turma A1'
+    school
   end
 end

@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :job do
-    teacher_id 1
-    school_id 1
+    teacher
+    school
   end
 end

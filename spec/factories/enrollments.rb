@@ -2,7 +2,9 @@
 
 FactoryGirl.define do
   factory :enrollment do
-    school_id 1
-    student_id 1
+    enrollment_number '1a'
+
+    school
+    student
   end
 end
