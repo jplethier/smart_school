@@ -1,5 +1,8 @@
 = link_to t('actions.new', model: 'Matéria'), new_school_subject_path
-.list
-  - @subjects.each do |subject|
-    .item
-      = link_to subject.name, school_subject_path(subject)
+%table
+  %thead
+    %tr
+      %th= t('activerecord.attributes.subject.name')
+      %th
+  %tbody
+    = render @subjects
