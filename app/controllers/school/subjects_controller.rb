@@ -1,3 +1,4 @@
+#coding: utf-8
 class School::SubjectsController < School::ApplicationController
   
   def new
@@ -8,7 +9,7 @@ class School::SubjectsController < School::ApplicationController
     @subject = Subject.new(params[:subject])
     @subject.school = current_school
     if @subject.save
-      redirect_to subject_path(@subject), success: I18n.t('messages.update.success', model: 'Matéria')
+      redirect_to school_subject_path(@subject), success: I18n.t('messages.update.success', model: 'Matéria')
     else
       flash.now[:error] = I18n.t('messages.create.error', model: 'Matéria')
       render 'new'
@@ -26,7 +27,7 @@ class School::SubjectsController < School::ApplicationController
   def update
     @subject = current_school.subjects.find(params[:id])
     if @subject.update_attributes(params[:subject])
-      redirect_to subject_path(@subject), success: I18n.t('messages.update.success', model: 'Matéria')
+      redirect_to school_subject_path(@subject), success: I18n.t('messages.update.success', model: 'Matéria')
     else
       flash.now[:error] = I18n.t('messages.update.error', model: 'Matéria')
       render 'edit'

@@ -1,4 +1,6 @@
 class School < User
+
+  has_many :subjects
   
   def admin?
     false

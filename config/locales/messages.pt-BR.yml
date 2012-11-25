@@ -1,0 +1,8 @@
+'pt-BR':
+  messages:
+    create:
+      success: "%{model} criado com sucesso!"
+      success: "%Ocorreu um erro ao tentar criar %{model}!"
+    create:
+      success: "%{model} atualizado com sucesso!"
+      success: "%Ocorreu um erro ao tentar atualizar %{model}!"

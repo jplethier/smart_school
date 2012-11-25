@@ -1,0 +1,7 @@
+"pt-BR":
+  actions:
+    back: 'Voltar'
+    confirm: 'Confirmar'
+    edit: 'Editar %{model}'
+    home: 'Página Inicial'
+    subjects: 'Matérias'
