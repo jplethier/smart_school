@@ -1,7 +1,10 @@
-- if school_signed_in?
-  = render 'school/layouts/header'
-- elsif student_signed_in?
-- elsif teacher_signed_in?
-- elsif admin_signed_in?
-- else
-  Header
+.header
+  .content
+    - if school_signed_in?
+      = render 'school/layouts/header'
+    - elsif student_signed_in?
+    - elsif teacher_signed_in?
+    - elsif admin_signed_in?
+    - else
+      Header
+.clear

@@ -19,20 +19,21 @@
     = render 'layouts/header'
     #wrap
       %article{ id: controller.controller_name.singularize }
-        #flashes
-          - flash.each do |name, msg|
-            - if name == :error
-              .alert.error#flash_error{ style: "opacity: 1;" }
-                %p= msg
+        .content
+          #flashes
+            - flash.each do |name, msg|
+              - if name == :error
+                .alert.error#flash_error{ style: "opacity: 1;" }
+                  %p= msg
 
-            - if name == :alert
-              .alert.notice#flash_warning{ style: "opacity: 1;" }
-                %p>= msg
+              - if name == :alert
+                .alert.notice#flash_warning{ style: "opacity: 1;" }
+                  %p>= msg
 
-            - if name == :notice
-              .alert.success#flash_notice{ style: "opacity: 1;" }
-                %p= msg
+              - if name == :notice
+                .alert.success#flash_notice{ style: "opacity: 1;" }
+                  %p= msg
                 
-        = yield
+            = yield
     = render 'layouts/footer'
     = debug(params) if Rails.env.development?
