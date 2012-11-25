@@ -2,5 +2,20 @@
   
   %p= f.label :name
   %p= f.text_field :name
+
+  %p= label_tag :subject, t('actions.subjects')
+  %p
+    = select_tag :subject, options_from_collection_for_select(current_school.subjects, :id, :name)
+    = link_to 'Adicionar a turma', 'javascript:;', onclick: "add_to_group('subject')"
+
+  %p= label_tag :student, t('actions.alunos')
+  %p
+    = select_tag :student, options_from_collection_for_select(current_school.students, :id, :name)
+    = link_to 'Adicionar a turma', 'javascript:;', onclick: "add_to_group('student')"
   
   = f.submit t('actions.confirm')
+
+:javascript
+  function add_to_group(id){
+    alert($('#' + id).val())
+  }

@@ -233,6 +233,7 @@
         enrollment_number: 'Matrícula'
       group:
         name: 'Nome'
+        subject: 'Matérias'
       student:
         enrollment_number: 'Matrícula'
         name: 'Nome'
