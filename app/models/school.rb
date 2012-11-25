@@ -1,6 +1,12 @@
 class School < User
 
   has_many :subjects
+
+  has_many :enrollments
+  has_many :students, through: :enrollments
+
+  has_many :jobs
+  has_many :teachers, through: :jobs
   
   def admin?
     false

@@ -1,4 +1,8 @@
 class Teacher < User
+
+  has_many :jobs
+  has_many :schools, through: :jobs
+
   def admin?
     false
   end
