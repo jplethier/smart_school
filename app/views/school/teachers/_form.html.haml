@@ -1,5 +1,9 @@
 = form_for [:school, @teacher], html: { method: (@teacher.new_record? ? :post : :put) } do |f|
-  = f.label :name
-  = f.text_field :name
+  
+  %p= f.label :name
+  %p= f.text_field :name
+
+  %p= f.label :email
+  %p= f.text_field :email
 
   = f.submit t('actions.confirm')

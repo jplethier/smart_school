@@ -1,3 +1,4 @@
+# coding: utf-8
 class School::TeachersController < School::ApplicationController
   def new
     @teacher = Teacher.new
@@ -5,9 +6,11 @@ class School::TeachersController < School::ApplicationController
 
   def create
     @teacher = Teacher.new(params[:teacher])
-    @teacher.jobs << Job.new(school_id: current_school.id)
+    @teacher.schools << current_school
+    @teacher.password = '123qwe'
+    @teacher.password_confirmation = '123qwe'
     if @teacher.save
-      flash[:alert] = "Senha gerada automaticamente: #{@teacher.generate_password}"
+      flash[:alert] = "Senha gerada automaticamente: '123qwe'"
       redirect_to school_teacher_path(@teacher), success: I18n.t('messages.update.success', model: 'Professor')
     else
       flash.now[:error] = I18n.t('messages.create.error', model: 'Professor')
