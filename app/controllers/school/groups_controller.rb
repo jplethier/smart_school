@@ -5,7 +5,6 @@ class School::GroupsController < School::ApplicationController
   end
 
   def update
-    binding.pry
     @group = current_school.groups.find(params[:id])
     binding.pry
     if @group.update_attributes(params[:group])
