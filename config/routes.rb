@@ -9,6 +9,8 @@ SmartSchool::Application.routes.draw do
 
     resources :subjects
     resources :teachers
+    resources :students
+    resources :groups
   end
 
   namespace :teacher do

@@ -1,0 +1,19 @@
+= form_for [:school, @student], html: { method: (@student.new_record? ? :post : :put) } do |f|
+  
+  %p= f.label :name
+  %p= f.text_field :name
+
+  %p= f.label :email
+  %p= f.text_field :email
+
+  - if @student.new_record?
+    %p= f.label :enrollment_number
+    %p= f.text_field :enrollment_number
+
+  - else
+    = f.fields_for :enrollments do |f_e|
+      
+      %p= f_e.label :enrollment_number, 'Matrícula'
+      %p= f_e.text_field :enrollment_number
+
+  = f.submit t('actions.confirm')

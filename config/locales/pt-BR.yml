@@ -224,8 +224,16 @@
 
   activerecord:
     models:
+      group: 'Turma'
+      student: 'Aluno'
       subject: 'Matéria'
+      teacher: 'Professor'
     attributes:
+      enrollment:
+        enrollment_number: 'Matrícula'
+      student:
+        enrollment_number: 'Matrícula'
+        name: 'Nome'
       subject:
         name: 'Nome'
       teacher:

@@ -1,0 +1,9 @@
+= link_to t('actions.new', model: 'Aluno'), new_school_student_path
+%table
+  %thead
+    %tr
+      %th= t('activerecord.attributes.student.name')
+      %th= t('activerecord.attributes.student.email')
+      %th= t('activerecord.attributes.student.enrollment_number')
+  %tbody
+    = render @students

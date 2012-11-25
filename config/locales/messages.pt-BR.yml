@@ -2,7 +2,7 @@
   messages:
     create:
       success: "%{model} criado com sucesso!"
-      success: "%Ocorreu um erro ao tentar criar %{model}!"
-    create:
+      error: "Ocorreu um erro ao tentar criar %{model}!"
+    update:
       success: "%{model} atualizado com sucesso!"
-      success: "%Ocorreu um erro ao tentar atualizar %{model}!"
+      error: "Ocorreu um erro ao tentar atualizar %{model}!"
