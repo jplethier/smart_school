@@ -1,0 +1,5 @@
+= link_to t('actions.new', model: 'Professor'), new_school_teacher_path
+.list
+  - @teachers.each do |teacher|
+    .item
+      = link_to teacher.name, school_teacher_path(teacher)

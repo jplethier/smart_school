@@ -4,4 +4,6 @@
     confirm: 'Confirmar'
     edit: 'Editar %{model}'
     home: 'Página Inicial'
+    new: 'Novo %{model}'
     subjects: 'Matérias'
+    teachers: 'Professores'

@@ -228,6 +228,8 @@
     attributes:
       subject:
         name: 'Nome'
+      teacher:
+        name: 'Nome'
 
     errors:
 
