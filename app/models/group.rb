@@ -7,4 +7,6 @@ class Group < ActiveRecord::Base
   has_many :group_subjects
   has_many :subjects, through: :group_subjects
   has_many :teachers, through: :subjects
+
+  attr_protected :id
 end

@@ -1,0 +1,6 @@
+= form_for [:school, @group], html: { method: (@group.new_record? ? :post : :put) } do |f|
+  
+  %p= f.label :name
+  %p= f.text_field :name
+  
+  = f.submit t('actions.confirm')

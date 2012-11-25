@@ -1,0 +1,7 @@
+= link_to t('actions.new', model: 'Turma'), new_school_group_path
+%table
+  %thead
+    %tr
+      %th= t('activerecord.attributes.group.name')
+  %tbody
+    = render @groups

@@ -231,6 +231,8 @@
     attributes:
       enrollment:
         enrollment_number: 'Matrícula'
+      group:
+        name: 'Nome'
       student:
         enrollment_number: 'Matrícula'
         name: 'Nome'
